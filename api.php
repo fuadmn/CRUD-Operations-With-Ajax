@@ -1,43 +1,62 @@
 <?php
 
-header("Content-type: application/json);
+header("Content-type: application/json");
+
+include 'conn.php';
 
 // function readAll
 // function Insert
 // function Delete
 // function Update
 
-function raadAll($conn){
- 
- $data = array();
- $massage = array();
- //read All  students in the database
- $query = "SELECT * FORM student";
+//POST
 
- // excute the quert
+$action = $_POST['action'];
 
- $result $conn->query($query);
- 
- // success or error
 
- if($reqult){
+function readAll($conn){
+    
+    $data = array();
+    $massage = array();
+    //read All students in the database
+    $query = "SELECT * FROM student";
+
+    //excute the query
+
+    $result = $conn->query($query);
+
+    //success or error
+   
+    if($result){
 
         while($row = $result->fetch_assoc()){
-    
-           $data [] = $row;
-       }
 
-       $massage = array("status" => true, "data" =? $data);
+            $data [] = $row;
 
- }else{
+        }
 
-       $massage = array("status" => false, "data" => $conn->error);
+        $massage = array("status" => true, "data" => $data);
 
-       
-     }
+    }else{
+          
+        $massage = array ("status" => false, "data" => $conn->error);
 
-     echo json_encode($massage);
+    }
+
+       echo json_encode($massage);
+
 
 }
+
+if(isset($action)){
+
+    $action($conn);
+
+}else{
+    echo "Action is Required.....";
+}
+
+
+
 
 ?>
