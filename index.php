@@ -38,17 +38,17 @@
       <div class="modal-body">
 
 
-       <form>
+       <form id="studentForm">
 
        <div class="form-group m-2">
-        <input type="text" name="" id="studentId" class="form-control" placeholder="Enter student Id">
+        <input type="text" name="id" id="id" class="form-control" placeholder="Enter student Id">
         
        </div>
        <div class="form-group m-2">
-       <input type="text" name="" id="studentName" class="form-control" placeholder="Enter student Name">        
+       <input type="text" name="name" id="name" class="form-control" placeholder="Enter student Name">        
        </div>
        <div class="form-group m-2">
-       <input type="text" name="" id="studentClass" class="form-control" placeholder="Enter student Class">        
+       <input type="text" name="class" id="class" class="form-control" placeholder="Enter student Class">        
        </div>
 
        <div class="modal-footer">

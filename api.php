@@ -51,7 +51,7 @@ function readAll($conn){
 
 function registerStudent($conn){
 
-    $studentId = $_POST['student_id'];
+    $studentId = $_POST['id'];
     $studentName = $_POST['name'];
     $studentClass = $_POST['class'];
 
