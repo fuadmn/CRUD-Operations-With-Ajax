@@ -1,3 +1,5 @@
+loadData();
+
 $("#addNew").click(function(){
 
 $("#studentModal").modal("show");
@@ -42,3 +44,53 @@ $("#studentForm").submit(function(event){
 
     })
 })
+
+
+function loadData() {
+
+  let sendingData = {
+    "action" : "readAll"
+  }
+
+  $.ajax({
+        method: "POST",
+        dataType : "JSON",
+        url : "api.php",
+        data : sendingData,
+        success : function(data){
+
+          let status = data.status;
+          let response = data.data;
+
+          let html = '';
+          let tr = '';
+
+          if(status){
+
+            response.forEach( item =>{
+               tr += "<tr>";
+              for(let i in item){
+
+                // console.log("This is ", i);
+                // console.log("This is ", item);
+                
+                tr += `<td>${item[i]}</td>`;
+                 
+
+              }
+
+              tr += "</tr>"
+                       
+            })
+          
+            $("#studentTable tbody").append(tr);
+            
+          }
+
+        },
+        error : function(data){
+
+        }
+
+  })
+}
