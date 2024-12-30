@@ -78,7 +78,8 @@ function loadData() {
                  
 
               }
-
+   
+              tr += `<td> <a class="btn btn-info update_info" update_id=${item['id']}> <i class="fas fa-edit delete-info" delete_id=${item['id']}></i> </a> &nbsp;&nbsp;<a class="btn btn-danger"><i class="fas fa-trash"></a></td>`
               tr += "</tr>"
                        
             })
